@@ -1,5 +1,6 @@
-import { Component } from '@angular/core';
+import { Component, inject } from '@angular/core';
 import { ActivatedRoute, Router, RouterLink } from '@angular/router';
+import { SignupFormComponent } from '../signup-form/signup-form.component';
 
 @Component({
   selector: 'app-header',
@@ -10,9 +11,9 @@ import { ActivatedRoute, Router, RouterLink } from '@angular/router';
 })
 export class HeaderComponent {
 
-  private route: Router = injecting(ActivatedRoute);
+  private router: Router = inject(Router);
 
   navigateToSignUpPage(): void {
-    this.route.navigateTo(/signup)
+    this.router.navigate(['/signup'])
   }
 }
