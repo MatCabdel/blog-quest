@@ -17,18 +17,11 @@ export class ArticleListComponent implements OnInit {
 
   articles$!: Observable<Article[]>;
 
-  http = inject(HttpClient)
 
-  private apiUrl = 'http://localhost:3000/articles';
-
-  // private apiService = inject(ApiService);
+   private apiService = inject(ApiService);
 
   ngOnInit() {
-    this.articles$ = this.getArticles();
-}
-
-getArticles(): Observable<Article[]> {
-  return this.http.get<Article[]>(this.apiUrl);
+    this.articles$ = this.apiService.getArticles();
 }
 
   handleLike(article: Article) {
